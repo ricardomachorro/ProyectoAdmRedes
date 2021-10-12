@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='ingreso.css')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro</title>
+</head>
+
+<body>
+  <div class="main">
+    <p class="sign" align="center">Registro</p>
+    <form class="form1" method="post" action="/registro_usuario">
+      <input class="un " name="nombre" type="text" align="center" placeholder="Nombre Usuario">
+      <input class="un " name="correo" type="text" align="center" placeholder="Correo">
+      <input class="pass" name="contra" type="password" align="center" placeholder="Contraseña">
+      <input class="pass" name="codigo" type="password" align="center" placeholder="Codigo acceso">
+      <button class="submit" align="center">Registrar</button>        
+                
+    </div>
+     
+</body>
+
+</html>
