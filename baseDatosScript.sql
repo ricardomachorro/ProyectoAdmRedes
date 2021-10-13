@@ -12,6 +12,9 @@ primary key (IDUsuario));
 
 insert  Usuario(Nombre,Contra,Correo,Nivel) values ('ricardo','1234','rick@gmail.com','Administrador');
 insert  Usuario(Nombre,Contra,Correo,Nivel) values ('luis','345','luis@gmail.com','Normal');
+insert  Usuario(Nombre,Contra,Correo,Nivel) values ('erick','123','erick@gmail.com','Normal');
+insert  Usuario(Nombre,Contra,Correo,Nivel) values ('pedro','456','pedro@gmail.com','Normal');
+
 select * from usuario;
 
 create table UsuarioTopologia (

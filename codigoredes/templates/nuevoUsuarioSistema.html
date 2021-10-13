@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Usuarios sistema</title>
+    <title>Control Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
 </head>
@@ -36,19 +36,12 @@
         </nav>
     </div>
     <div>
-        <a href="{{url_for('nuevo_usuario_sistema')}}"><button>Nuevo usuario en el sistema</button></a>
-
-        <ul>
-            {% for usuario in usuarios%}
-            <li>
-                <div>Nombre:{{ usuario.1 }} Contra: {{ usuario.2 }} Correo:{{ usuario.3 }}
-                    <a href="/cambiar_usuario_sistema/{{usuario.0}}"><button>Cambiar</button></a>
-                    <a href="/eliminar_usuario_sistema/{{usuario.0}}"><button>Eliminar</button></a>
-                </div>
-            </li>
-            {% endfor %}
-
-        </ul>
+        <form method="post" action="/registro_nuevo_usuario_sistema">
+            <div><input type="text" placeholder="nombre" name="nombre"></div>
+            <div><input type="text" placeholder="correo" name="correo"></div>
+            <div><input type="text" placeholder="Contraseña" name="contra"></div>
+            <button type="submit">Crear usuario</button>
+        </form>
     </div>
 
 </body>
