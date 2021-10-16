@@ -36,11 +36,11 @@
         </nav>
     </div>
     <div>
-        <form >
-            <div><input type="text" placeholder="nombre"></div>
-            <div><input type="text" placeholder="correo"></div>
-            <div><input type="text" placeholder="Contraseña"></div>
-            <button>Guardar cambios</button>
+        <form method="post" action="/guardar_cambios_configuracion_administrador">
+            <div><input type="text" name="nombre" placeholder="nombre" value={{nombreUsuario}}></div>
+            <div><input type="text" name="correo" placeholder="correo" value={{correoUsuario}}></div>
+            <div><input type="text" name="contra" placeholder="Contraseña"></div>
+            <button type="submit">Guardar cambios</button>
         </form>
     </div>
 

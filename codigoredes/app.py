@@ -1,7 +1,8 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect,session
 from flask_mysqldb import MySQL
 
 app=Flask(__name__)
+app.secret_key = "super secret key"
 app.config['MYSQL_HOST']='localhost'
 app.config['MYSQL_USER']='root'
 app.config['MYSQL_PASSWORD']='ramv1357'
@@ -30,7 +31,18 @@ def control_snpm_pagina():
 
 @app.route("/configuracion_admi_pagina")
 def configuracion_admi_pagina():
-    return render_template('configuracionAdministrador.html')
+    cur=mysql.connection.cursor()
+    resultadoSelect=cur.execute('select * from Usuario where IDUsuario={0}'.format(session["userID"]))
+    mysql.connection.commit()
+    detallesUsuario=cur.fetchall()
+    nombre=""
+    correo=""
+    contra=""
+    for user in detallesUsuario:
+        nombre=user[1]
+        contra=user[2]
+        correo=user[3]
+    return render_template('configuracionAdministrador.html',nombreUsuario=nombre,correoUsuario=correo,contraUsuario=contra)
 
 @app.route("/registro_pagina")
 def registro_pagina():
@@ -91,7 +103,20 @@ def eliminar_usuario_sistema(id):
     return redirect('/usuarios_sistema_pagina')
 
 
-
+@app.route("/guardar_cambios_configuracion_administrador", methods=['POST'])
+def guardar_cambios_configuracion_administrador():
+    
+    if request.method=='POST':
+        nombreUsu=request.form['nombre']
+        correoUsu=request.form['correo']
+        contraUsu=request.form['contra']
+        cur=mysql.connection.cursor()
+        cur.execute('update Usuario set Nombre=%s , Contra=%s , Correo=%s where IDUsuario={0}'.format(session["userID"]),
+        (nombreUsu,contraUsu,correoUsu))
+        mysql.connection.commit()
+        return redirect('/usuarios_sistema_pagina')
+    else:
+        return  render_template('error.html')
 
 
 
@@ -126,7 +151,9 @@ def ingreso_usuario():
                     tipoUsuario=1
                 elif user[4]=='Normal':
                     tipoUsuario=2
-            print(tipoUsuario)
+                session["userID"]=user[0]
+            """print(tipoUsuario)"""
+            
             if tipoUsuario==1:
                 return  render_template('controlUsuario.html')
             elif tipoUsuario==2:
