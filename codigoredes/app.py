@@ -18,6 +18,10 @@ def Index():
 def control_usuario_pagina():
     return render_template('controlUsuario.html')
 
+@app.route ("/control_protocolos")
+def control_protocolos():
+    return render_template('configuracionProtocolos.html')
+
 @app.route("/usuarios_sistema_pagina")
 def usuarios_sistema_pagina():
     cur=mysql.connection.cursor()
