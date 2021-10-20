@@ -1,0 +1,79 @@
+Oct 17 19:58:59.761 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 17 19:58:59.765 HYPERVISOR: Started on IP = localhost, TCP port = 25900.
+Oct 17 19:59:00.183 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 17 19:59:00.183 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips 
+Oct 17 19:59:00.184 GENERAL: working_dir=D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips
+Oct 17 19:59:00.185 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\77b3493d-0f47-47ee-907a-1bff073e0660 
+Oct 17 19:59:00.187 GENERAL: working_dir=D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\77b3493d-0f47-47ee-907a-1bff073e0660
+Oct 17 19:59:00.188 HYPERVISOR: exec_cmd: vm create R1 1 c7200 
+Oct 17 19:59:00.202 VM: VM R1 created.
+Oct 17 19:59:00.204 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5005 
+Oct 17 19:59:00.205 HYPERVISOR: exec_cmd: c7200 get_mac_addr R1 
+Oct 17 19:59:00.205 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 19:59:00.206 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 0 C7200-IO-FE 
+Oct 17 19:59:00.211 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Oct 17 19:59:00.213 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Oct 17 19:59:00.215 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 19:59:00.215 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x608927c0 
+Oct 17 19:59:00.219 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/Ricardo Alberto/GNS3/images/IOS/c7200-a3jk9s-mz.124-25g.image 
+Oct 17 19:59:00.220 HYPERVISOR: exec_cmd: c7200 set_mac_addr R1 ca01.311c.0000 
+Oct 17 19:59:00.222 HYPERVISOR: exec_cmd: vm set_nvram R1 512 
+Oct 17 19:59:00.223 HYPERVISOR: exec_cmd: vm set_ram R1 512 
+Oct 17 19:59:00.225 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 19:59:00.226 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 PA-2FE-TX 
+Oct 17 19:59:00.227 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 19:59:00.228 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 PA-2FE-TX 
+Oct 17 19:59:03.517 HYPERVISOR: exec_cmd: nio create_udp udp-6916c187-e1d8-4399-90a2-6921c9cf7cf2 10014 127.0.0.1 10015 
+Oct 17 19:59:03.870 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-6916c187-e1d8-4399-90a2-6921c9cf7cf2 
+Oct 17 19:59:03.871 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 19:59:03.975 HYPERVISOR: exec_cmd: nio create_udp udp-e316ccc5-193a-468e-abfd-4254322eb399 10018 127.0.0.1 10019 
+Oct 17 19:59:03.983 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 1 0 udp-e316ccc5-193a-468e-abfd-4254322eb399 
+Oct 17 19:59:03.984 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 22:17:42.193 HYPERVISOR: exec_cmd: vm create Ghost 0 c7200 
+Oct 17 22:17:42.205 VM: VM Ghost created.
+Oct 17 22:17:42.207 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/Ricardo Alberto/GNS3/images/IOS/c7200-a3jk9s-mz.124-25g.image 
+Oct 17 22:17:42.208 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Oct 17 22:17:42.209 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\c7200-a3jk9s-mz.124-25g.image-512.ghost 
+Oct 17 22:17:42.210 HYPERVISOR: exec_cmd: vm set_ram Ghost 512 
+Oct 17 22:17:42.210 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Oct 17 22:17:42.215 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Oct 17 22:17:42.216 HYPERVISOR: exec_cmd: vm start Ghost 
+Oct 17 22:17:42.980 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Oct 17 22:17:42.981 HYPERVISOR: exec_cmd: vm stop Ghost 
+Oct 17 22:17:43.076 VM: VM Ghost shutdown.
+Oct 17 22:17:43.078 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Oct 17 22:17:43.080 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Oct 17 22:17:43.080 VM: VM Ghost destroyed.
+Oct 17 22:17:43.090 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Oct 17 22:17:43.091 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\c7200-a3jk9s-mz.124-25g.image-512.ghost 
+Oct 17 22:17:43.091 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 17 22:17:43.092 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Oct 17 22:17:43.093 HYPERVISOR: exec_cmd: vm start R1 
+Oct 17 22:18:13.399 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 18 00:50:14.501 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Oct 18 00:50:14.502 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\c7200-a3jk9s-mz.124-25g.image-512.ghost 
+Oct 18 00:50:14.502 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 00:52:47.848 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 00:52:47.849 HYPERVISOR: exec_cmd: vm stop R1 
+Oct 18 00:52:48.053 VM: VM R1 shutdown.
+Oct 18 00:52:48.055 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 18 00:52:53.355 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Oct 18 00:52:53.355 HYPERVISOR: exec_cmd: vm set_ghost_file R1 D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\c7200-a3jk9s-mz.124-25g.image-512.ghost 
+Oct 18 00:52:53.356 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 00:52:53.357 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Oct 18 00:52:53.357 HYPERVISOR: exec_cmd: vm start R1 
+Oct 18 00:54:30.712 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 00:54:30.712 HYPERVISOR: exec_cmd: vm stop R1 
+Oct 18 00:54:30.923 VM: VM R1 shutdown.
+Oct 18 00:54:30.925 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 18 01:03:20.778 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 01:03:20.782 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 18 01:05:44.828 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 01:05:44.833 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 18 01:05:46.451 HYPERVISOR: exec_cmd: vm get_status R1 
+Oct 18 01:05:46.453 HYPERVISOR: exec_cmd: vm extract_config R1 
+Oct 18 01:05:46.456 HYPERVISOR: exec_cmd: vm delete R1 
+Oct 18 01:05:46.456 VM: VM R1 destroyed.
+Oct 18 01:05:46.457 HYPERVISOR: exec_cmd: hypervisor stop 
+Oct 18 01:05:46.660 HYPERVISOR: Stopped.
+Oct 18 01:05:46.660 GENERAL: reset done.

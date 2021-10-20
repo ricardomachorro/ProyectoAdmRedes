@@ -1,0 +1,64 @@
+Oct 17 19:59:00.359 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 17 19:59:00.362 HYPERVISOR: Started on IP = localhost, TCP port = 25903.
+Oct 17 19:59:00.798 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 17 19:59:00.799 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips 
+Oct 17 19:59:00.800 GENERAL: working_dir=D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips
+Oct 17 19:59:00.801 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\a95d45d1-0da1-4dd4-b387-07e2eb6bfbaf 
+Oct 17 19:59:00.804 GENERAL: working_dir=D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\a95d45d1-0da1-4dd4-b387-07e2eb6bfbaf
+Oct 17 19:59:00.804 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+Oct 17 19:59:00.812 VM: VM R2 created.
+Oct 17 19:59:00.814 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5006 
+Oct 17 19:59:00.814 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Oct 17 19:59:00.815 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 17 19:59:00.816 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Oct 17 19:59:00.817 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Oct 17 19:59:00.818 HYPERVISOR: exec_cmd: vm set_exec_area R2 64 
+Oct 17 19:59:00.820 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 17 19:59:00.820 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x608927c0 
+Oct 17 19:59:00.823 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/Ricardo Alberto/GNS3/images/IOS/c7200-a3jk9s-mz.124-25g.image 
+Oct 17 19:59:00.825 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca02.30a4.0000 
+Oct 17 19:59:00.826 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Oct 17 19:59:00.828 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Oct 17 19:59:00.829 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 17 19:59:00.830 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+Oct 17 19:59:00.831 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 17 19:59:00.832 HYPERVISOR: exec_cmd: vm slot_add_binding R2 2 0 PA-2FE-TX 
+Oct 17 19:59:04.005 HYPERVISOR: exec_cmd: nio create_udp udp-bf3ea4a5-b764-4d36-ba91-ce9eb8d2ee64 10020 127.0.0.1 10021 
+Oct 17 19:59:04.313 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-bf3ea4a5-b764-4d36-ba91-ce9eb8d2ee64 
+Oct 17 19:59:04.315 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 17 19:59:04.439 HYPERVISOR: exec_cmd: nio create_udp udp-622fbdac-42bd-4808-9633-d2623a7f2369 10024 127.0.0.1 10025 
+Oct 17 19:59:04.448 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 1 0 udp-622fbdac-42bd-4808-9633-d2623a7f2369 
+Oct 17 19:59:04.448 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 17 19:59:04.985 HYPERVISOR: exec_cmd: nio create_udp udp-f18e5834-909a-4d97-b576-da831702ff03 10032 127.0.0.1 10033 
+Oct 17 19:59:04.993 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 1 1 udp-f18e5834-909a-4d97-b576-da831702ff03 
+Oct 17 19:59:04.994 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 00:50:14.509 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Oct 18 00:50:14.510 HYPERVISOR: exec_cmd: vm set_ghost_file R2 D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\c7200-a3jk9s-mz.124-25g.image-512.ghost 
+Oct 18 00:50:14.510 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 00:50:14.512 HYPERVISOR: exec_cmd: vm set_config R2 configs\i2_startup-config.cfg 
+Oct 18 00:50:14.512 HYPERVISOR: exec_cmd: vm start R2 
+Oct 18 00:50:44.816 HYPERVISOR: exec_cmd: vm extract_config R2 
+Oct 18 00:52:48.057 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 00:52:48.062 HYPERVISOR: exec_cmd: vm stop R2 
+Oct 18 00:52:48.283 VM: VM R2 shutdown.
+Oct 18 00:52:48.284 HYPERVISOR: exec_cmd: vm extract_config R2 
+Oct 18 00:52:53.694 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Oct 18 00:52:53.696 HYPERVISOR: exec_cmd: vm set_ghost_file R2 D:\Escom7Semestre\ADMINISTRACION DE SERVICIOS EN RED\CodigoProyecto\gns3Topologias\topologia1\project-files\dynamips\c7200-a3jk9s-mz.124-25g.image-512.ghost 
+Oct 18 00:52:53.698 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 00:52:53.700 HYPERVISOR: exec_cmd: vm set_config R2 configs\i2_startup-config.cfg 
+Oct 18 00:52:53.701 HYPERVISOR: exec_cmd: vm start R2 
+Oct 18 00:54:30.940 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 00:54:30.941 HYPERVISOR: exec_cmd: vm stop R2 
+Oct 18 00:54:31.190 VM: VM R2 shutdown.
+Oct 18 00:54:31.192 HYPERVISOR: exec_cmd: vm extract_config R2 
+Oct 18 01:03:20.781 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 01:03:20.783 HYPERVISOR: exec_cmd: vm extract_config R2 
+Oct 18 01:05:44.829 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 01:05:44.834 HYPERVISOR: exec_cmd: vm extract_config R2 
+Oct 18 01:05:46.450 HYPERVISOR: exec_cmd: vm get_status R2 
+Oct 18 01:05:46.452 HYPERVISOR: exec_cmd: vm extract_config R2 
+Oct 18 01:05:46.454 HYPERVISOR: exec_cmd: vm delete R2 
+Oct 18 01:05:46.455 VM: VM R2 destroyed.
+Oct 18 01:05:46.456 HYPERVISOR: exec_cmd: hypervisor stop 
+Oct 18 01:05:46.692 HYPERVISOR: Stopped.
+Oct 18 01:05:46.692 GENERAL: reset done.

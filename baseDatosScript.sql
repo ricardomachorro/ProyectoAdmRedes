@@ -20,6 +20,7 @@ select * from usuario;
 create table UsuarioTopologia (
 IDUsuarioTopologia int not null auto_increment,
 Nombre varchar (255),
+Contra varchar (255),
 Nivel int,
 primary key (IDUsuarioTopologia));
 
