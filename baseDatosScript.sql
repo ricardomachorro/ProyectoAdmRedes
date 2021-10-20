@@ -24,6 +24,10 @@ Contra varchar (255),
 Nivel int,
 primary key (IDUsuarioTopologia));
 
+insert  UsuarioTopologia(Nombre,Contra,Nivel) values ('cisco','cisco',15);
+
+select * from UsuarioTopologia;
+
 create table Dispositivo(
 IDDispositivo int not null auto_increment,
 NombreHost varchar(255),
