@@ -4,6 +4,7 @@
     <title>Control Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='protocolos.css')}}">
 </head>
 
 <body>
@@ -38,8 +39,24 @@
             </ul>
         </nav>
     </div>
-    <div>
-        
+    <div class="contenedorGeneralProtocolos">
+        <div id="protocoloRIP" class="contendorProtocolos">
+            <h1>Protocolo RIP</h1>
+            <form input="" method="post">
+                <h2>Ingresar nueva direccion</h2>
+                   <input type="text" placeholder="Nueva direccion">
+                   <button type="submit">Ingresar</button> 
+            </form>
+        </div>
+        <div id="protocoloOSPF" class="contendorProtocolos">
+            <h1>Protocolo OSPF</h1>
+
+        </div>
+        <div id="protocoloIGRP" class="contendorProtocolos">
+            <h1>Protocolo IGRP</h1>
+              
+        </div>
+
     </div>
 
 </body>
