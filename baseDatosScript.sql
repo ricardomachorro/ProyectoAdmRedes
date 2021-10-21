@@ -1,4 +1,4 @@
-drop database if exists flaskredes;
+drop database if exists flaskRedes;
 create database flaskRedes;
 use flaskRedes;
 
@@ -15,7 +15,7 @@ insert  Usuario(Nombre,Contra,Correo,Nivel) values ('luis','345','luis@gmail.com
 insert  Usuario(Nombre,Contra,Correo,Nivel) values ('erick','123','erick@gmail.com','Normal');
 insert  Usuario(Nombre,Contra,Correo,Nivel) values ('pedro','456','pedro@gmail.com','Normal');
 
-select * from usuario;
+select * from Usuario;
 
 create table UsuarioTopologia (
 IDUsuarioTopologia int not null auto_increment,
