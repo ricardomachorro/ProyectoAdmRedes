@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect,session
 from flask_mysqldb import MySQL
+from conexionSSH import *
 
 app=Flask(__name__)
 app.secret_key = "super secret key"
@@ -170,12 +171,18 @@ def ingreso_usuario():
         return  render_template('error.html')
 
 
-
+"""acciones de los protocolos""" 
         
-
-@app.route('/delete')
-def delete_contact():
-    return 'delete'
+@app.route('/nueva_ruta_rip',methods=['POST'])
+def nueva_ruta_rip():
+    listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
+    if request.method=='POST':
+        ruta=request.form['rutaIP']
+        for i in listaIP:
+            crear_rutaRIP(ruta,i)
+        return redirect('/usuarios_sistema_pagina')
+    else:
+        return render_template('error.html')
 
 if __name__=='__main__':
     app.run(port=3000,debug=True)
