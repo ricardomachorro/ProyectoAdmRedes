@@ -184,5 +184,33 @@ def nueva_ruta_rip():
     else:
         return render_template('error.html')
 
+@app.route('/nueva_ruta_ospf',methods=['POST'])
+def nueva_ruta_ospf():
+    listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
+    if request.method=='POST':
+        processID=request.form['processID']
+        direccionRed=request.form['direccionRed']
+        wildcard=request.form['wildcard']
+        areaID=request.form['areaID']
+        for i in listaIP:
+            crear_rutaOSPF(processID,direccionRed,wildcard,areaID,i)
+        return redirect('/usuarios_sistema_pagina')
+    else:
+        return render_template('error.html')
+
+
+@app.route('/nueva_ruta_eigrp',methods=['POST'])
+def nueva_ruta_eigrp():
+    listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
+    if request.method=='POST':
+        numAuto=request.form['autNum']
+        direccionRed=request.form['direccionRed']
+        wildcard=request.form['wildcard']
+        for i in listaIP:
+            crear_rutaEIGRP(numAuto,direccionRed,wildcard,i)
+        return redirect('/usuarios_sistema_pagina')
+    else:
+        return render_template('error.html')
+    
 if __name__=='__main__':
     app.run(port=3000,debug=True)
