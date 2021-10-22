@@ -70,3 +70,24 @@ def crear_rutaEIGRP(numAuto,direccionRed,wildCard,ip):
             output=new_connection.recv(max_buffer)
             output=clear_buffer(new_connection)
     new_connection.close()
+
+  
+def crear_usuario_topologia_ssh(nombre_ssh,contra_ssh,nivel_ssh,ip):
+    contadorLineaArchivo=0
+    connection=paramiko.SSHClient()
+    connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    connection.connect(ip,username=username,password=password,look_for_keys=False,allow_agent=False)
+    new_connection=connection.invoke_shell()
+    output=clear_buffer(new_connection)
+    time.sleep(2)
+    with open("nuevoUsuarioTopologia.txt","r") as file:
+        for line in file:
+            contadorLineaArchivo+=1
+            if contadorLineaArchivo==2:
+                line=line.format(nombre_dato_ssh=nombre_ssh,nivel_dato_ssh=nivel_ssh,contra_dato_ssh=contra_ssh)
+            new_connection.send(line.rstrip()+"\n")
+            time.sleep(2)
+            output=new_connection.recv(max_buffer)
+            output=clear_buffer(new_connection)
+    new_connection.close()
+    
