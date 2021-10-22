@@ -1,10 +1,51 @@
 <html>
-  <head>
-
-  </head>
-
+<head>
+    <title>Nuevo usuario topologia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
+</head>
  <body>
+   <div class="wrapper">
+     <nav>
+       <a href="#" class="logo aNav">Sistema Gestion Topologia</a>
+           <ul class="ulNav">
+                <li>
+                    <a class="aNav" href="{{url_for('control_usuario_pagina')}}">Control usuarios</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('usuarios_sistema_pagina')}}">Usuario sistema</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
+                </li>
+                <li>
+                    <a class="aNav" href="#">Monitoreo Paquetes</a>
+                </li>
+                <li>
+                    <a class="aNav" href="#">Bitacora</a>
+                </li>
+                <li>
+                    <a class="aNav" href="#">Grafica</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('configuracion_admi_pagina')}}">Configuración Administrador</a>
+                </li>
+            </ul>       
+     </nav>  
+   </div>  
+   <div>
+        <form method="post" action="/registro_nuevo_usuario_topologia">
+            <div><input type="text" placeholder="nombre" name="nombre"></div>
+            <div><input type="text" placeholder="nivel" name="nivel"></div>
+           <div><input type="text" placeholder="contra" name="contra"></div>
+            <button type="submit">Crear usuario</button>
+        </form>
+    </div>
 
+   
  </body>  
 
 </html>
