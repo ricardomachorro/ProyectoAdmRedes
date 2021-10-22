@@ -57,6 +57,10 @@ def registro_pagina():
 def nuevo_usuario_sistema():
     return render_template('nuevoUsuarioSistema.html')
 
+@app.route("/nuevo_usuario_topologia")
+def nuevo_usuario_topologia():
+    return render_template('nuevoUsuarioTopologia.html')
+
 """acciones de administracion usuario sistema"""
 @app.route("/registro_nuevo_usuario_sistema",methods=['POST'])
 def registro_nuevo_usuario_sistema():
@@ -171,6 +175,26 @@ def ingreso_usuario():
         return  render_template('error.html')
 
 
+"""acciones de los usuarios topologia"""
+
+@app.route("/registro_nuevo_usuario_topologia",methods=['POST'])
+def registro_nuevo_usuario_topologia():
+    if request.method=='POST':
+        listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
+        nombreUsu=request.form['nombre']
+        nivelUsu=request.form['nivel']
+        contraUsu=request.form['contra']
+        for i in listaIP:
+            crear_usuario_topologia_ssh(nombreUsu,contraUsu,nivelUsu,i)
+        cur=mysql.connection.cursor()
+        cur.execute('insert into UsuarioTopologia (Nombre,Contra,Nivel) values (%s,%s,%s)',
+        (nombreUsu,contraUsu,nivelUsu))
+        mysql.connection.commit()
+        return redirect('/control_usuario_pagina')
+    else:
+        return render_template('error.html')
+
+    
 """acciones de los protocolos""" 
         
 @app.route('/nueva_ruta_rip',methods=['POST'])
