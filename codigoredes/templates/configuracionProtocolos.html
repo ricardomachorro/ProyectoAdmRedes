@@ -50,12 +50,34 @@
         </div>
         <div id="protocoloOSPF" class="contendorProtocolos">
             <h1>Protocolo OSPF</h1>
+            <form action="/nueva_ruta_ospf" method="post">
+             <h2>Ingresar nueva direccion</h2>
+                <a>Process ID</a>
+                <input type="text"name="processID"  placeholder="process ID">
+                <a>Direccion de red</a>
+                <input type="text"name="direccionRed"  placeholder="direccion de Red">
+               <a>Wildcard</a>
+                <input type="text"name="wildcard"  placeholder="wildcard">
+               <a>Area ID</a>
+                <input type="text"name="areaID"  placeholder="Area ID">
+                  <button type="submit">Ingresar</button>
 
+            </form>
         </div>
         <div id="protocoloIGRP" class="contendorProtocolos">
             <h1>Protocolo IGRP</h1>
-              
+           <form action="/nueva_ruta_eigrp" method="post">
+            <h2>Ingresar nueva direccion</h2>
+              <a>Numero sistema autonomo</a>
+              <input type="text"name="autNum"  placeholder="numero sistem autonomo">
+              <a>Direccion de red</a>
+                <input type="text"name="direccionRed"  placeholder="direccion de Red">
+              <a>Wildcard</a>
+                <input type="text"name="wildcard"  placeholder="wildcard">
+             <button type="submit">Ingresar</button>
+           </form>
         </div>
+
 
     </div>
 
