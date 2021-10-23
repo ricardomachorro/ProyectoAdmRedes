@@ -17,7 +17,10 @@ def Index():
 
 @app.route("/control_usuario_pagina")
 def control_usuario_pagina():
-    return render_template('controlUsuario.html')
+    cur=mysql.connection.cursor()
+    resultadoSelect=cur.execute('select * from UsuarioTopologia where not IDUsuarioTopologia=1')
+    data=cur.fetchall()
+    return render_template('controlUsuario.html',usuarios=data)
 
 @app.route ("/control_protocolos")
 def control_protocolos():
@@ -56,7 +59,7 @@ def registro_pagina():
 @app.route("/nuevo_usuario_sistema")
 def nuevo_usuario_sistema():
     return render_template('nuevoUsuarioSistema.html')
-
+    
 @app.route("/nuevo_usuario_topologia")
 def nuevo_usuario_topologia():
     return render_template('nuevoUsuarioTopologia.html')
@@ -164,7 +167,7 @@ def ingreso_usuario():
             """print(tipoUsuario)"""
             
             if tipoUsuario==1:
-                return  render_template('controlUsuario.html')
+                return  redirect('/control_usuario_pagina')
             elif tipoUsuario==2:
                 return  render_template('pingUsuario.html')
             else:
@@ -194,9 +197,9 @@ def registro_nuevo_usuario_topologia():
     else:
         return render_template('error.html')
 
-    
-"""acciones de los protocolos""" 
-        
+
+"""acciones de los protocolos"""        
+
 @app.route('/nueva_ruta_rip',methods=['POST'])
 def nueva_ruta_rip():
     listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
@@ -207,7 +210,7 @@ def nueva_ruta_rip():
         return redirect('/usuarios_sistema_pagina')
     else:
         return render_template('error.html')
-
+        
 @app.route('/nueva_ruta_ospf',methods=['POST'])
 def nueva_ruta_ospf():
     listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
@@ -235,6 +238,6 @@ def nueva_ruta_eigrp():
         return redirect('/usuarios_sistema_pagina')
     else:
         return render_template('error.html')
-    
+
 if __name__=='__main__':
     app.run(port=3000,debug=True)
