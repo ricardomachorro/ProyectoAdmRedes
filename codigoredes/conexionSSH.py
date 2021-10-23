@@ -9,7 +9,7 @@ def clear_buffer(connection):
     if connection.recv_ready():
         return connection.recv(max_buffer)
 
-def crear_rutaRIP(nombre_ruta):
+def crear_rutaRIP(nombre_ruta,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -22,13 +22,13 @@ def crear_rutaRIP(nombre_ruta):
             contadorLineaArchivo+=1
             if contadorLineaArchivo==4:
                 line=line.format(direccion=nombre_ruta)
-            new_connection.send(line,rstrip()+"\n")
+            new_connection.send(line.rstrip()+"\n")
             time.sleep(2)
             output=new_connection.recv(max_buffer)
             output=clear_buffer(new_connection)
     new_connection.close()
-
-    
+ 
+ 
 def crear_rutaOSPF(procesoID,direccionRed,wildCard,areaID,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -70,8 +70,8 @@ def crear_rutaEIGRP(numAuto,direccionRed,wildCard,ip):
             output=new_connection.recv(max_buffer)
             output=clear_buffer(new_connection)
     new_connection.close()
-
-  
+ 
+ 
 def crear_usuario_topologia_ssh(nombre_ssh,contra_ssh,nivel_ssh,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
