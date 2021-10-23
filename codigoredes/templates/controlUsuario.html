@@ -38,13 +38,23 @@
             </ul>
         </nav>
     </div>
-    <div>
-         <a href="{{url_for('nuevo_usuario_topologia')}}"><button>Nuevo usuario en la topologia</button></a>
-        <ul >  
-            <li><div>usuario:usuario 1 nivel:2<button>Cambiar</button><button>Eliminar</button></div></li>
-            <li><div>usuario:usuario 3 nivel:4<button>Cambiar</button><button>Eliminar</button></div></li>
-        </ul>
+     <div>
+        <a href="{{url_for('nuevo_usuario_topologia')}}"><button>Nuevo usuario en la topologia</button></a>
+        <ul >
+            {% for usuario in usuarios%}
+             <li>
+              <div>Usuario nombre:{{usuario.1}} Contra:{{usuario.2}} Nivel:{{usuario.3}}
+                <a href="/{{usuario.0}}"><button>Cambiar</button></a>
+                <a href="/{{usuario.0}}"><button>Eliminar</button></a>
+               </div>
+             </li>
+
+
+
+           {% endfor %}
+ </ul>
     </div>
+
 
 </body>
 
