@@ -27,6 +27,7 @@ primary key (IDUsuarioTopologia));
 insert  UsuarioTopologia(Nombre,Contra,Nivel) values ('cisco','cisco',15);
 
 select * from UsuarioTopologia;
+delete from UsuarioTopologia where IDUsuarioTopologia>3;
 
 create table Dispositivo(
 IDDispositivo int not null auto_increment,
@@ -38,5 +39,3 @@ Tipo varchar(255),
 primary key (IDDispositivo),
 FOREIGN KEY (Responsable) REFERENCES Usuario(IDUsuario)
 );
-
-
