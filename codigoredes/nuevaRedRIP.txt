@@ -4,3 +4,4 @@ version 2
 network {direccion}
 no auto-summary
 exit
+exit

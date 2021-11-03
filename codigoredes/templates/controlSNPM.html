@@ -21,13 +21,13 @@
                     <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Monitoreo Paquetes</a>
+                    <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Bitacora</a>
+                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Grafica</a>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -41,8 +41,8 @@
     <div>
        
         <ul >  
-            <li><div>Dispositivo 1 <button>Cambiar</button><button>Detalles</button></div></li>
-            <li><div>Dispositivo 2 <button>Cambiar</button><button>Detalles</button></div></li>
+            <li><div>Dispositivo 1<a href="{{url_for('cambio_SNPM_Dispositivo')}}"> <button>Cambiar</button></a></div></li>
+            <li><div>Dispositivo 2<a href="{{url_for('cambio_SNPM_Dispositivo')}}"> <button>Cambiar</button></a></div></li>
         </ul>
     </div>
 

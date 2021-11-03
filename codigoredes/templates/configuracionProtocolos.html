@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -22,13 +23,13 @@
                     <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Monitoreo Paquetes</a>
+                    <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Bitacora</a>
+                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Grafica</a>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -41,15 +42,21 @@
     </div>
     <div class="contenedorGeneralProtocolos">
         <div id="protocoloRIP" class="contendorProtocolos">
-            <h1>Protocolo RIP</h1>
-            <form action="/nueva_ruta_rip" method="post">
+
+           <h1>Protocolo RIP </h1>
+           <h2>Activacion  del RIP</h2>
+           <a href="{{url_for('activar_rip_default')}}"><button>Activar RIP por default</button></a>
+            <form action="/nueva_ruta_rip"  method="post">
                 <h2>Ingresar nueva direccion</h2>
-                   <input type="text" name="rutaIP"  placeholder="Nueva direcci>
+                   <a>Ruta RIP</a>
+                   <input type="text"name="rutaIP"  placeholder="Nueva direccion">
                    <button type="submit">Ingresar</button>
             </form>
         </div>
         <div id="protocoloOSPF" class="contendorProtocolos">
             <h1>Protocolo OSPF</h1>
+            <h2>Activacion del OSPF con Process ID 1</h2>
+           <a href="{{url_for('activar_ospf_default')}}"><button>Activar OSPF default</button></a>
             <form action="/nueva_ruta_ospf" method="post">
              <h2>Ingresar nueva direccion</h2>
                 <a>Process ID</a>
@@ -66,6 +73,8 @@
         </div>
         <div id="protocoloIGRP" class="contendorProtocolos">
             <h1>Protocolo IGRP</h1>
+            <h2>Activacion del IGRP con nuemro de sistema autonomo 1</h2>
+           <a href="{{url_for('activar_eigrp_default')}}"><button>Activar IGRP default</button></a>
            <form action="/nueva_ruta_eigrp" method="post">
             <h2>Ingresar nueva direccion</h2>
               <a>Numero sistema autonomo</a>
@@ -75,9 +84,8 @@
               <a>Wildcard</a>
                 <input type="text"name="wildcard"  placeholder="wildcard">
              <button type="submit">Ingresar</button>
-           </form>
+           </form>              
         </div>
-
 
     </div>
 

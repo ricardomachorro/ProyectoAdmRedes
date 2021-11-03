@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Ping Usuario</title>
+    <title>tracert  Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
 </head>
@@ -15,7 +15,7 @@
                     <a class="aNav" href="{{url_for('ping_Usuario')}}">Ping</a>
                 </li>
                 <li>
-                    <a class="aNav" href="{{url_for('tracert_Usuario')}}">Tracert</a>
+                    <a class="aNav" href="#">Tracert</a>
                 </li>
                 <li>
                     <a class="aNav" href="#">Grafica</a>
@@ -29,12 +29,12 @@
     </div>
   <div>
        <form>
-          <input type="text" placeholder="direccion ping" name="pingDireccion">
+          <input type="text" placeholder="direccion tracert" name="tracertDireccion">
          <a><button>Enviar</button></a>
        </form>
         <div>
             <textarea>
-             Resultado del ping
+             Resultado del tracert
             </textarea>
         </div>
 

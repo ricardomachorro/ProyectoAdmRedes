@@ -2,3 +2,4 @@ conf t
 router eigrp {numAutoEIGRP}
 network {direccionRedEIGRP} {wildcardEIGRP}
 exit
+exit

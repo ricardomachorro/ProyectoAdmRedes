@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Control Usuario</title>
+    <title>Control Paquetes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
 </head>
@@ -24,10 +24,10 @@
                     <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
+                    <a class="aNav" href="#">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
+                    <a class="aNav" href="#">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -39,20 +39,11 @@
         </nav>
     </div>
     <div>
-        <a href="{{url_for('nuevo_usuario_topologia')}}"><button>Nuevo usuario en la topologia</button></a>
-        <ul >  
-            {% for usuario in usuarios%}
-             <li>
-              <div>Usuario nombre:{{usuario.1}} Contra:{{usuario.2}} Nivel:{{usuario.3}}
-                <a href="/cambiar_usuario_topologia/{{usuario.0}}"><button>Cambiar</button></a>
-                <a href="/eliminar_usuario_topologia/{{usuario.0}}"><button>Eliminar</button></a>
-               </div>
-             </li>
-
-            
        
-           {% endfor %}
- </ul>
+        <ul >  
+            <li><div>Dispositivo 1<a href="/paquetesDispositivo"> <button>Ver transito</button></a></div></li>
+            <li><div>Dispositivo 2<a href="/paquetesDispositivo"> <button>Ver transito</button></a></div></li>
+        </ul>
     </div>
 
 </body>

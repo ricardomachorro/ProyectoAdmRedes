@@ -2,3 +2,4 @@ conf t
 router ospf {processIDOSPF}
 network {networkOSPF} {wildcardOSPF} area {areaIDOSPF}
 exit
+exit

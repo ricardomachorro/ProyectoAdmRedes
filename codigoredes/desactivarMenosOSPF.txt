@@ -1,0 +1,5 @@
+conf t
+no router rip
+no router eigrp 1
+exit
+exit

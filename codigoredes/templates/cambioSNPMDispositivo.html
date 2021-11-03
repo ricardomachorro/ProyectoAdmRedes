@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Control Usuario</title>
+    <title>Cambio SNPM dispositivo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
 </head>
@@ -21,13 +21,13 @@
                     <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
                 </li>
                 <li>
-                    <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
+                    <a class="aNav" href="#">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
+                    <a class="aNav" href="#">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
+                    <a class="aNav" href="#">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -39,20 +39,13 @@
         </nav>
     </div>
     <div>
-        <a href="{{url_for('nuevo_usuario_topologia')}}"><button>Nuevo usuario en la topologia</button></a>
-        <ul >  
-            {% for usuario in usuarios%}
-             <li>
-              <div>Usuario nombre:{{usuario.1}} Contra:{{usuario.2}} Nivel:{{usuario.3}}
-                <a href="/cambiar_usuario_topologia/{{usuario.0}}"><button>Cambiar</button></a>
-                <a href="/eliminar_usuario_topologia/{{usuario.0}}"><button>Eliminar</button></a>
-               </div>
-             </li>
-
-            
-       
-           {% endfor %}
- </ul>
+        <form method="post" action="/">
+            <div><input type="text" placeholder="Nombre del host" name="nombreHost"></div>
+            <div><input type="text" placeholder="Responsable" name="responsable"></div>
+            <div><input type="text" placeholder="Ubicacion" name="ubicacion"></div>
+           <div><input type="text" placeholder="Contacto" name="contacto"></div>
+            <button type="submit">Guardar cambios</button>
+        </form>
     </div>
 
 </body>

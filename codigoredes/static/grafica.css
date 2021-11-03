@@ -1,0 +1,31 @@
+.contenedorPrincipal{
+
+  display: flex;
+    flex-direction:column;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+}
+
+.contenedorImagenTopologia{
+    margin:13px;
+    display: flex;
+    flex-direction:row;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+}
+
+.contenedorDatos{ 
+    margin:13px;
+    display: flex;
+    flex-direction:row;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+}
+
+.seccionDatos{
+   margin:13px;
+}
+
