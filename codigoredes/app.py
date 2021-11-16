@@ -212,6 +212,12 @@ def registro_usuario():
         cur.execute('insert into Usuario (Nombre,Contra,Correo,Nivel) values (%s,%s,%s,%s)',
         (nombreUsu,contraUsu,correoUsu,'Administrador'))
         mysql.connection.commit()
+        cur=mysql.connection.cursor()
+        resultadoSelect=cur.execute("select * from Usuario where Nombre=%s and Contra=%s",
+        (nombreUsu,contraUsu))
+        detallesUsuario=cur.fetchall()
+        for user in detalleUsuario:
+            session["userID"]=user[0]
         return  render_template('controlUsuario.html')
     else:
         return  render_template('error.html')
