@@ -143,8 +143,8 @@ def cambiar_usuario_sistema(id):
     contra=""
     for user in detallesUsuario:
         nombre=user[1]
-        correo=user[2]
-        contra=user[3]
+        correo=user[3]
+        contra=user[2]
     return render_template('cambioUsuarioSistema.html',idUsuario=id,nombreUsuario=nombre,correoUsuario=correo,contraUsuario=contra)
 
 @app.route("/guardar_cambio_usuario_sistema/<string:id>",methods=['POST'])
@@ -246,6 +246,11 @@ def ingreso_usuario():
     else:
         return  render_template('error.html')
 
+#Metodo para cerrar sesion del usuario
+@app.route('/salir_sesion')
+def salir_sesion():
+    sesion.clear()
+    return render_template('index.html')
 
 """acciones de los usuarios topologia"""
 
