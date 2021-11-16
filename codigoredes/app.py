@@ -10,6 +10,14 @@ app.config['MYSQL_PASSWORD']='ramv1357'
 app.config['MYSQL_DB']='flaskRedes'
 mysql=MySQL(app)
 
+#Activacion RSA y SSH via telnet
+@app.route("/ssh_rsa_activacion")
+def ssh_rsa_activacion():
+    listaIP=['10.0.0.254','192.0.0.2','192.0.0.6']
+    for i in listaIP:
+        conectarSSHandRSA(i)
+    return redirect('/control_usuario_pagina')
+    
 """Direccionamiento paginas"""
 @app.route("/")
 def Index():
