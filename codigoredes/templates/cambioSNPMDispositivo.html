@@ -11,7 +11,7 @@
         <nav>
             <a href="#" class="logo aNav">Sistema Gestion Topologia</a>
             <ul class="ulNav">
-                <li>
+               <li>
                     <a class="aNav" href="{{url_for('control_usuario_pagina')}}">Control usuarios</a>
                 </li>
                 <li>
@@ -21,13 +21,13 @@
                     <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Monitoreo Paquetes</a>
+                    <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Bitacora</a>
+                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Grafica</a>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -35,15 +35,18 @@
                 <li>
                     <a class="aNav" href="{{url_for('configuracion_admi_pagina')}}">Configuración Administrador</a>
                 </li>
+               <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+               
             </ul>
         </nav>
     </div>
     <div>
-        <form method="post" action="/">
-            <div><input type="text" placeholder="Nombre del host" name="nombreHost"></div>
-            <div><input type="text" placeholder="Responsable" name="responsable"></div>
-            <div><input type="text" placeholder="Ubicacion" name="ubicacion"></div>
-           <div><input type="text" placeholder="Contacto" name="contacto"></div>
+        <form method="post" action="/guardar_datos_SNPM_Dispositivo/{{ipDestino}}">
+            <div><input type="text" value="{{regresoNombreHost}}"  placeholder="Nombre del host" name="nombreHost"></div>
+            <div><input type="text" value="{{regresoLocalizacion}}"  placeholder="Ubicacion" name="ubicacion"></div>
+           <div><input type="text" value="{{regresoContacto}}"  placeholder="Contacto" name="contacto"></div>
             <button type="submit">Guardar cambios</button>
         </form>
     </div>

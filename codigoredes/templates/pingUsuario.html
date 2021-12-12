@@ -18,29 +18,52 @@
                     <a class="aNav" href="{{url_for('tracert_Usuario')}}">Tracert</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Grafica</a>
+                    <a class="aNav" href="{{url_for('ver_graficaNormal')}}">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('configuracion_usuario_pagina')}}">Configuracion</a>
-                </li>                
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+                
             </ul>
         </nav>
         
     </div>
   <div>
-       <form>
-          <input type="text" placeholder="direccion ping" name="pingDireccion">
+       <form id="formEntrada" name="formEntrada">
+          <input type="text" placeholder="direccion ping" id="pingDireccion" name="pingDireccion">
          <a><button>Enviar</button></a>
        </form>
         <div>
-            <textarea>
+            <textarea name="ping" id="ping">
              Resultado del ping
             </textarea>
         </div>
 
 
 </div>
+<script src="{{url_for('static',filename='jquery.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("#formEntrada").on("submit",function(e){
+     $.ajax({
+       type:"POST",
+        url:"/ping_resultado",
+        data:$("#formEntrada").serialize(),
+        success:function(response){
+           dato=response.resultado;
+           $("#ping").val(dato); 
+         }
 
+      });
+
+  });
+
+
+})
+</script>
 </body>
 
 </html>

@@ -24,10 +24,10 @@
                     <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Bitacora</a>
+                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Grafica</a>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -35,14 +35,19 @@
                 <li>
                     <a class="aNav" href="{{url_for('configuracion_admi_pagina')}}">Configuración Administrador</a>
                 </li>
+               <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
             </ul>
         </nav>
     </div>
     <div>
        
-        <ul >  
-            <li><div>Dispositivo 1<a href="/paquetesDispositivo"> <button>Ver transito</button></a></div></li>
-            <li><div>Dispositivo 2<a href="/paquetesDispositivo"> <button>Ver transito</button></a></div></li>
+        <ul >
+             {% for router in routers%}  
+            <li><div>{{router.destination_host}}<a href="/paquetesDispositivo/{{router.management_ip}}"> <button>Ver transito</button></a></div></li>
+            
+             {% endfor %}
         </ul>
     </div>
 

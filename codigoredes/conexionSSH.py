@@ -1,4 +1,4 @@
-import paramiko,getpass,time
+import paramiko,getpass,time,telnetlib
 
 
 username="cisco"
@@ -8,7 +8,29 @@ max_buffer=65535
 def clear_buffer(connection):
     if connection.recv_ready():
         return connection.recv(max_buffer)
+"""     
+def conectarSSHandRSA(ip):
+    user='cisco'
+    password='cisco'
+    tn=telnetlib.Telnet(ip)
+    tn.read_until(b"Username:")
+    tn.write(user.encode('ascii')+b"\n")
+    print("paso")
+    tn.write(password.encode('ascii')+b"\n")
+    tn.write(b"enable\n")
+    tn.write(password.encode('ascii') + b"\n")
+    tn.write(b"conf t\n")
+    tn.write(b"enable secret 1234 \n")
+    tn.write(b"ip ssh rsa keypair-name sshkey \n")
+    tn.write(b"crypto key generate rsa usage-keys label sshkey modulus 1024 \n")
+    tn.write(b"ip ssh v 2 \n")
+    tn.write(b"ip ssh time-out 30\n")
+    tn.write(b"ip ssh authentication-retries 3\n")
+    tn.write(b"transport input ssh telnet\n")
+    tn.write(b"exit\n")
+    tn.write(b"exit\n")"""
 
+#Crear una ruta rip con ip del router y direccion de ruta
 def crear_rutaRIP(nombre_ruta,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -28,7 +50,7 @@ def crear_rutaRIP(nombre_ruta,ip):
             output=clear_buffer(new_connection)
     new_connection.close()
  
- 
+#Crear una ruta ospf con ip del router, numero del proceso, direccion de ruta, wildcard de la rutay area
 def crear_rutaOSPF(procesoID,direccionRed,wildCard,areaID,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -50,6 +72,7 @@ def crear_rutaOSPF(procesoID,direccionRed,wildCard,areaID,ip):
             output=clear_buffer(new_connection)
     new_connection.close()
     
+#Crear una ruta rip con ip del router,direccion de ruta, wildcard de la ruta y numero de ruta    
 def crear_rutaEIGRP(numAuto,direccionRed,wildCard,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -71,7 +94,7 @@ def crear_rutaEIGRP(numAuto,direccionRed,wildCard,ip):
             output=clear_buffer(new_connection)
     new_connection.close()
  
- 
+#Crear un usuario dentro de la topologia con nombre, nivel de permiso, contra e ip del router donde se crea el usuario 
 def crear_usuario_topologia_ssh(nombre_ssh,contra_ssh,nivel_ssh,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -91,7 +114,7 @@ def crear_usuario_topologia_ssh(nombre_ssh,contra_ssh,nivel_ssh,ip):
             output=clear_buffer(new_connection)
     new_connection.close()
  
- 
+#ELimina un usuario del ip del router donde esta el usuario  
 def eliminar_usuario_topologia_ssh(nombre_ssh,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -111,6 +134,8 @@ def eliminar_usuario_topologia_ssh(nombre_ssh,ip):
             output=clear_buffer(new_connection)
     new_connection.close()
 
+
+#Cambia un usuario dentro de la topologia con nombre, nivel de permiso, contra e ip del router donde estael usuario 
 def cambiar_usuario_topologia_ssh(nombre_ssh,contra_ssh,nivel_ssh,ip):
     contadorLineaArchivo=0
     connection=paramiko.SSHClient()
@@ -130,7 +155,7 @@ def cambiar_usuario_topologia_ssh(nombre_ssh,contra_ssh,nivel_ssh,ip):
             output=clear_buffer(new_connection)
     new_connection.close()
 
-    
+#Activar rip defualt en router con ip especifico    
 def activar_rip_default_ssh(ip):
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -146,6 +171,8 @@ def activar_rip_default_ssh(ip):
             output=clear_buffer(new_connection)
     new_connection.close()
 
+
+#Descativar todos los protocolos default menos rip en un router con ip especifico  
 def quitar_menos_RIP_ssh(ip):
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -161,7 +188,9 @@ def quitar_menos_RIP_ssh(ip):
             output=new_connection.recv(max_buffer)
             output=clear_buffer(new_connection)
     new_connection.close()
- 
+
+
+#Activar ospf default en router con ip especifico  
 def activar_ospf_default_ssh(ip):
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -177,6 +206,8 @@ def activar_ospf_default_ssh(ip):
             output=clear_buffer(new_connection)
     new_connection.close()
 
+
+#Descativar todos los protocolos default menos ospf en un router con ip especifico  
 def quitar_menos_OSPF_ssh(ip):
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -192,7 +223,8 @@ def quitar_menos_OSPF_ssh(ip):
             output=new_connection.recv(max_buffer)
             output=clear_buffer(new_connection)
     new_connection.close()
- 
+
+#Activar eigrp default en router con ip especifico 
 def activar_eigrp_default_ssh(ip):
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -208,6 +240,8 @@ def activar_eigrp_default_ssh(ip):
             output=clear_buffer(new_connection)
     new_connection.close()
 
+
+#escativar todos los protocolos default menos eigrp en un router con ip especifico  
 def quitar_menos_EIGRP_ssh(ip):
     connection=paramiko.SSHClient()
     connection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -223,4 +257,3 @@ def quitar_menos_EIGRP_ssh(ip):
             output=new_connection.recv(max_buffer)
             output=clear_buffer(new_connection)
     new_connection.close()
-                		

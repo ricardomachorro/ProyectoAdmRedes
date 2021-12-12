@@ -35,17 +35,36 @@
                 <li>
                     <a class="aNav" href="{{url_for('configuracion_admi_pagina')}}">Configuración Administrador</a>
                 </li>
+               <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+
             </ul>
         </nav>
     </div>
     <div>
-        <form method="post" action="/guardar_cambios_configuracion_administrador">
+        <h2>Seccion para manejo de SSH y RSA </h2>
+        <a href="{{url_for('ssh_rsa_activacion')}}"><button>Activar RSA y SSH</button></a>
+        <h2>Datos cuenta administrador</h2>
+         <form method="post" action="/guardar_cambios_configuracion_administrador">
             <div><input type="text" name="nombre" placeholder="nombre" value={{nombreUsuario}}></div>
             <div><input type="text" name="correo" placeholder="correo" value={{correoUsuario}}></div>
             <div><input type="text" name="contra" placeholder="Contraseña"></div>
             <button type="submit">Guardar cambios</button>
         </form>
     </div>
+    <div>
+      <form method="post" action="/actualizar_tiempo_topologia"  >
+       <h2>Seleccione cada cuanto tiempo se actualiza la topologia</h2>
+       <select name="selector_tiempo_actualizacion"  id="selector_tiempo_actualizacion">
+         <option value="10">10 minutos</option>
+         <option value="12">12 minutos</option>
+         <option value="14">14 minutos</option>
+         <option value="16">16 minutos</option>
+       </select>
+       <button type="submit">Guardar cambios</button>
+      </form>
+   </div> 
 
 </body>
 

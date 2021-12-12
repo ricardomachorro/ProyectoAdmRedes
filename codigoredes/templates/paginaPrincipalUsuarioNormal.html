@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Control Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="#" class="logo aNav">Sistema Gestion Topologia</a>
+            <ul class="ulNav">
+<!--                <li>
+                    <a class="aNav" href="{{url_for('ping_Usuario')}}">Ping</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('tracert_Usuario')}}">Tracert</a>
+                </li>-->
+                 <li>
+                    <a class="aNav" href="{{url_for('datos_usuario_pagina_principal')}}">Datos</>
+                </li>
+
+                <li>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('configuracion_usuario_pagina')}}">Configuracion</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </div>
+    <div>
+        <h1>Datos Usuario</h1>
+        <h2>Nombre:{{nombre}}</h2>
+        <h2>Correo:{{correo}}</h2>
+        <h2>Contra:{{contra}}</h2>
+       
+    </div>
+
+</body>
+
+</html>

@@ -21,13 +21,13 @@
                     <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Monitoreo Paquetes</a>
+                    <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Bitacora</a>
+                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
                 </li>
                 <li>
-                    <a class="aNav" href="#">Grafica</a>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
                 </li>
                 <li>
                     <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
@@ -35,28 +35,27 @@
                 <li>
                     <a class="aNav" href="{{url_for('configuracion_admi_pagina')}}">Configuración Administrador</a>
                 </li>
+               <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+
             </ul>
         </nav>
     </div>
     <div>
-       <div>
-           <button>Refrescar datos</button>
-       </div>       
-
-       <div>
-         <h1>Interfaz 1</h1>
-         <h2>Paquestes enviados y recibidos</h2>
-       <h2>Paquetes dañados</h2>
-        <h2>Paquetes perdidos</h2>
+        {% for interfaz in interfacesPagina%}
+            
+            <div>
+         <h1>Nombre Interfaz:{{interfaz.nombre}}</h1>
+         <h2>Paquestes enviados:{{interfaz.paquetes_enviados}}</h2>
+          <h2>Paquestes recibidos:{{interfaz.paquetes_recibidos}}</h2>
+       <h2>Paquetes perdidos:{{interfaz.paquetes_perdidos}}</h2>
+        <h2>Paquetes dañados:{{interfaz.paquetes_dam}}</h2>
        </div>
 
-       <div>
-       <h1>Interfaz 2</h1>
-         <h2>Paquestes enviados y recibidos</h2>
-       <h2>Paquetes dañados</h2>
-        <h2>Paquetes perdidos</h2>
+    {% endfor %}              
 
-      </div>
+       
         
     </div>
 

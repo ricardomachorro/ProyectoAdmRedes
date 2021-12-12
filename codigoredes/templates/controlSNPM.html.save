@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Usuarios sistema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="#" class="logo aNav">Sistema Gestion Topologia</a>
+            <ul class="ulNav">
+                <li>
+                    <a class="aNav" href="{{url_for('control_usuario_pagina')}}">Control usuarios</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('usuarios_sistema_pagina')}}">Usuario sistema</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('control_snpm_pagina')}}">Control SNMP</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('ver_paquetes')}}">Monitoreo Paquetes</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('ver_bitacora')}}">Bitacora</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('ver_grafica')}}">Grafica</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('control_protocolos')}}">Protocolos</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('configuracion_admi_pagina')}}">Configuración Administrador</a>
+                </li>
+               <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+
+                    
+            </ul>
+        </nav>
+    </div>
+    <div>
+       
+        <ul >  
+            <li><div>Dispositivo 1<a href="{{url_for('cambio_SNPM_Dispositivo')}}"> <button>Cambiar</button></a></div></li>
+            <li><div>Dispositivo 2<a href="{{url_for('cambio_SNPM_Dispositivo')}}"> <button>Cambiar</button></a></div></li>
+        </ul>
+        <ul>
+        {% for router in routers%
+
+           {% endfor %}
+       </ul>
+    </div>
+
+</body>
+
+</html>

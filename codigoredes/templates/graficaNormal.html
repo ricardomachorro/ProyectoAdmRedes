@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>Control Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{url_for('static',filename='navbar.css')}}">
+   <link rel="stylesheet" href="{{url_for('static',filename='tablaGrafica.css')}}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="#" class="logo aNav">Sistema Gestion Topologia</a>
+            
+           <ul class="ulNav">
+<!--                <li>
+                    <a class="aNav" href="{{url_for('ping_Usuario')}}">Ping</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('tracert_Usuario')}}">Tracert</a>
+                </li>-->
+                <li>
+                    <a class="aNav" href="{{url_for('datos_usuario_pagina_principal')}}">Datos</>
+                </li>
+
+                <li>
+                    <a class="aNav" href="{{url_for('ver_graficaNormal')}}">Grafica</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('configuracion_usuario_pagina')}}">Configuracion</a>
+                </li>
+                <li>
+                    <a class="aNav" href="{{url_for('salir_sesion')}}">Salir sesion</a>
+                </li>
+
+            </ul>
+                  
+        </nav>
+    </div>
+    <div class="contenedorPrincipal">
+        <div class="contenedorImagenTopologia">
+             <h1>Imagen de la topologia</h1>
+              <img src="{{url_for('static',filename='topology.png')}}">     
+       </div>
+      <div class="contenedorDatos">
+            <div class="seccionDatos">
+             <h1>Routers conectados<h1>
+             <table>
+                  <tr>
+                   <th>Nombre</th>
+                   <th>Ubicacion</th>
+                   <th>Contacto</th>
+                  </tr>
+
+                   {% for router in tablaRouters%}
+             <tr>
+
+              <td>{{router.nombre}}</td>
+              <td>{{router.ubicacion}}</td>
+              <td>{{router.contacto}}</td>
+              
+             </tr>
+
+
+
+           {% endfor %}
+
+             </table>
+            </div>
+           <div class="seccionDatos">
+             <h1>Interfaz<h1>
+             <table>
+                  <tr>
+                   <th>Nombre</th>
+                   <th>Router</th>
+                   <th>Estado</th>
+                  </tr>
+                   {% for interfaz  in tablaInterfaces%}
+             <tr>
+
+              <td>{{interfaz.nombre}}</td>
+              <td>{{interfaz.nombre_router}}</td>     
+              <td>{{interfaz.estado}}</td>
+
+             </tr>
+
+
+
+           {% endfor %}
+
+               </table>
+            </div>
+
+      </div>
+    </div>
+
+</body>
+
+</html>
