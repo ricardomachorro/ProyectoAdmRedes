@@ -341,6 +341,7 @@ def guardar_datos_SNPM_Dispositivo(ip):
         set_nombreHost(ip,nombreHost)
         set_Localizacion(ip,ubicacion)
         set_Contacto(ip,contacto)
+        actualizar_router_BD_Activo_Normal(nombreHost,ubicacion,contacto,ip)
         ingresarBitacora("El dispositivo con ip:"+ip+" se le actuliazo sus datos con el siguiente formato nombre host="+nombreHost+" ubicacion:"+ubicacion+",contacto:"+contacto)
         return redirect('/control_snpm_pagina')
     else:
@@ -562,7 +563,7 @@ def guardar_cambios_configuracion_normal():
         cur.execute('update Usuario set Nombre=%s , Contra=%s , Correo=%s where IDUsuario={0}'.format(session["userID"]),
         (nombreUsu,contraUsu,correoUsu))
         mysql.connection.commit()
-        ingresarBitacora("Cambio datos del usaurio con el ID:"+str(session["userID"])+" por los siguientes Nombre:"+nombreUsu+",Correo:"+correoUsu+",Contra:"+contraUsu)
+        #ingresarBitacora("Cambio datos del usaurio con el ID:"+str(session["userID"])+" por los siguientes Nombre:"+nombreUsu+",Correo:"+correoUsu+",Contra:"+contraUsu)
         return redirect('/datos_usuario_pagina_principal')
         #return redirect('/ping_Usuario')
     else:
@@ -650,7 +651,7 @@ def registro_nuevo_usuario_topologia():
         cur.execute('insert into UsuarioTopologia (Nombre,Contra,Nivel) values (%s,%s,%s)',
         (nombreUsu,contraUsu,nivelUsu))
         mysql.connection.commit()
-        ingresarBitacora("Se registro un nuevo usuario en la topologia con los siguientes datos Nombre:"+NombreUsu+",Nivel:"+str(nivelUsu)+",Contra:"+contraUsu)
+        ingresarBitacora("Se registro un nuevo usuario en la topologia con los siguientes datos Nombre:"+nombreUsu+",Nivel:"+str(nivelUsu)+",Contra:"+contraUsu)
         return redirect('/control_usuario_pagina')
     else:
         return render_template('error.html')
@@ -807,8 +808,8 @@ def activar_rip_default():
     
     scheduler.add_job(func=activar_protocolo_default,args=[1],trigger="interval",seconds=tiempo_espera,id="protocolo")
     
-    scheduler.add_job(func=alertasInterfaces,args=[session["userID"]],trigger="interval",seconds=210,id="interfaces")
-    
+    scheduler.add_job(func=alertasInterfaces,args=[session["userID"]],trigger="interval",seconds=150,id="interfaces")
+    ingresarBitacora("Se activo RIP por default")
      
     return redirect('/usuarios_sistema_pagina')
 
@@ -833,7 +834,10 @@ def activar_ospf_default():
     tiempo_espera=tiempo*60
     
     scheduler.add_job(func=activar_protocolo_default,args=[2],trigger="interval",seconds=tiempo_espera,id="protocolo") 
-    scheduler.add_job(func=alertasInterfaces,args=[session["userID"]],trigger="interval",seconds=210,id="interfaces")
+    scheduler.add_job(func=alertasInterfaces,args=[session["userID"]],trigger="interval",seconds=150,id="interfaces")
+    
+    ingresarBitacora("Se activo OSPF por default")
+    
     return redirect('/usuarios_sistema_pagina')
 
 #Activar eigrp defualt
@@ -857,7 +861,10 @@ def activar_eigrp_default():
     tiempo_espera=tiempo*60
     
     scheduler.add_job(func=activar_protocolo_default,args=[3],trigger="interval",seconds=tiempo_espera,id="protocolo")
-    scheduler.add_job(func=alertasInterfaces,args=[session["userID"]],trigger="interval",seconds=210,id="interfaces")
+    scheduler.add_job(func=alertasInterfaces,args=[session["userID"]],trigger="interval",seconds=150,id="interfaces")
+    
+    ingresarBitacora("Se activo EIGRP por default")
+    
     return redirect('/usuarios_sistema_pagina')
 
 
